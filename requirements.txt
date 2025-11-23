@@ -1,0 +1,21 @@
+# Core API framework
+fastapi==0.115.8
+uvicorn[standard]==0.34.0
+pydantic==2.10.6
+
+#for reranking
+flashrank==0.2.5
+
+# LangChain components
+langchain-community==0.3.18
+langchain-core==0.3.80
+langchain-text-splitters==0.3.6
+
+# Vector database
+chromadb==0.6.3
+
+# PDF processing
+pdfplumber==0.11.8
+
+# Python multipart (for file uploads)
+python-multipart==0.0.20

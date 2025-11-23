@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # Service 1: Your RAG API
+  rag-api:
+    build: .  # Build from the Dockerfile in current dir
+    container_name: production_rag_api
+    ports:
+      - "8000:8000"
+    volumes:
+      # THE FIX: Map local ./db_storage folder to /app/db_storage inside container
+      # This ensures data survives even if delete the container.
+      - ./db_storage:/app/db_storage
+    environment:
+      # Pass the config variable, added to main.py
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+    extra_hosts:
+      # Allow Linux container to see Mac host
+      - "host.docker.internal:host-gateway"
+    restart: always
+
+   # SERVICE 2: FRONTEND (Streamlit)
+  rag-ui:
+    build: ./frontend  # Build from the frontend folder
+    container_name: production_rag_ui
+    ports:
+      - "8501:8501"
+    environment:
+      # IMPORTANT: Inside Docker network, use the service name "rag-api"
+      # Not localhost!
+      - BACKEND_URL=http://rag-api:8000
+    depends_on:
+      - rag-api

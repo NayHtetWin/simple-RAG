@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+
+# Data (NEVER commit the database)
+db_storage/
+temp_*.pdf
+
+# OS
+.DS_Store
+
+# notes
+bug_fix_doc.md
+command.md
+development_notes.md
