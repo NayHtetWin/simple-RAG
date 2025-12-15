@@ -23,7 +23,7 @@ Simeple yet production-grade Retrieval-Augmented Generation (RAG) system with lo
 
 ## ⚡ Quick Start
 
-**Prerequisites:** Docker, Ollama
+**Prerequisites:** Docker, Ollama(mistral)
 
 ```bash
 git clone https://github.com/NayHtetWin/simple-RAG.git
