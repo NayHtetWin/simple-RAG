@@ -1,17 +1,20 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
 .env
 venv/
+.venv/
 
-# Data (NEVER commit the database)
+# Data & Models
 db_storage/
+model_cache/
 temp_*.pdf
 
 # OS
 .DS_Store
 
-# notes
+# Notes
 bug_fix_doc.md
 command.md
 development_notes.md
